@@ -1,0 +1,17 @@
+Wrapper code in this repository (app.py, entrypoint.sh, Dockerfile) is Apache-2.0, see LICENSE.
+
+The container image built from it also contains:
+
+- The model Falconsai/nsfw_image_detection at commit 96cb0d0342c7afb80cab76ecc58b265fa44da256, Apache-2.0 per
+  the license field of its Hugging Face model card (https://huggingface.co/Falconsai/nsfw_image_detection),
+  (c) Falconsai. Fine-tuned from google/vit-base-patch16-224-in21k (Apache-2.0) on a proprietary dataset of about
+  80,000 images that the card does not describe further. The repository contains no separate LICENSE file; the
+  licence statement is the model card metadata.
+- The model AdamCodd/vit-base-nsfw-detector at commit 8587de998f441aac03fdd57a85d2e4cb808c7d64, Apache-2.0 per
+  the license field of its Hugging Face model card (https://huggingface.co/AdamCodd/vit-base-nsfw-detector),
+  (c) AdamCodd. Fine-tuned from google/vit-base-patch16-384 (Apache-2.0) on about 25,000 images. The repository
+  contains no separate LICENSE file; the licence statement is the model card metadata.
+  The weight files are fetched at build time and verified by sha256; the model cards ship in the image as
+  /models/<name>/MODEL_CARD.md.
+- PyTorch (BSD-3-Clause), Hugging Face transformers (Apache-2.0), Pillow (MIT-CMU / HPND), NumPy (BSD-3-Clause)
+  and the other Python dependencies pinned in requirements.txt, each under its own licence.
